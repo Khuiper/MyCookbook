@@ -12,8 +12,27 @@ If check divides evenly into num, tell that to the user. If not, print a differe
 
 number = int(input("Ingresa un numero: "))
 
-if number % 2 == 0:
-    print("even")
+if number % 4 == 0:
+    print("Tu numero {} es multiplo de cuatro!".format(number))
+
+elif number % 2 == 0:
+    print("El numero {} es par".format(number))
 
 else:
-    print("odd")
+    print("El numero {} es impar".format(number))
+
+num = int(input("Ingresa un numero para verificar si son multiplos: "))
+check = int(input("Ingresa otro numero para verificar si son multiplos: "))
+
+
+if num < check:
+    if check % num == 0:
+        print("Tu numero {} es multiplo divisor de {}".format(num, check))
+    else:
+        print("No son multiplos")
+
+elif num % check == 0:
+    print("Tu numero {} es multiplo divisor de {}".format(check, num))
+
+
+    
