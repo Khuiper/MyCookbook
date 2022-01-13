@@ -18,8 +18,11 @@ the original list a that are smaller than that number given by the user.
 a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 4, 2, 3, 1, 6, 0, 5]
 b = []
 
-for a in a:
-    if a <=5:
-        b.append(a)
+#for a in a: //Solución 1
+#    if a <=5:
+#        b.append(a)
 
+#b = [x for x in a if x<=5] //Solucion en una linea
+
+b = list(filter(lambda x: x<=5, a)) #Tercera solucion 
 print(b)
