@@ -6,14 +6,14 @@ For example, 13 is a divisor of 26 because 26 / 13 has no remainder.)
 '''
 
 num = int(input("Ingresa un numero: "))
-b = []
+divisores = []
 
 counter = 1
 
 while counter <= num:
     if num % counter == 0:
-        b.append(counter)
+        divisores.append(counter)
 
     counter +=1
 
-print("Los numeros divisores de {} son: ".format(num), b)
+print("Los numeros divisores de {} son: ".format(num), divisores)
