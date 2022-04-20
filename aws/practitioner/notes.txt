@@ -1,0 +1,43 @@
+La consola de Amazon EC2 permite filtrar los atributos de instancia como es:
+
+- Tipo: t3.large/c5.large/r5.large  ...etc
+- Instance family: t3, c5, r5, etc.
+- Instance size: large, medium, etc
+
+tambien se puede visualizar el procesador, cantidad de memoria, AZ zone, arquitectura, costos por hora, etc.
+
+los metadatos de una instancia son datos acerca de la instancia que se puede usar para configurar o administrar una instancia que esta corriendo. la metadata es dividida en categorias como son:
+- host name
+- events
+- security groups
+
+Cuando se cran una nueva instancia se puede habilitar una Instance Metadata Service (IMDS) usando la seccion Advanced Details. Esto te permitira ver en pantalla los detalles de los atributos utilizando la direccion IP.
+
+Se puede conectar a una instancia utilizando:
+- Instance Connect
+- Session Manager
+- SSH client
+
+Session Manager Usage:
+- Connect to your instance without SSH keys or a bastion host.
+- Sessions are secured using an AWS Key Management Service key.
+- You can log session commands and details in an Amazon S3 bucket or CloudWatch Logs log group.
+- Configure sessions on the Session Manager Preferences page.
+
+El EC2 Instance Connect API permite usar una vez una clave SSH publica por 60 segundos. Una politica de IAM autorizara tu IAM user para poner la clave publica en los metadatos de la instancia. El daemon SSH en la instancia usa AuthorizedKeysCommand y AuthorizedKeysCommandUser para ingresar la clave publica de los metadatos para authenticar y conectar a la instancia.
+
+el comando por consola $tail -lo "aws_compute_solutions.log" mostrara informacion relevante de la instancia:
+
+[ec2-user@ip-10-10-0-10 sample_app]$ tail -lf aws_compute_solutions.log 
+INFO:werkzeug: * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+INFO:root:Instance Family is t2
+INFO:root:Instance Type is t2.micro
+INFO:root:Instance Id is i-0096e75bf5dd27a04
+INFO:root:Availability Zone is us-east-1a
+INFO:werkzeug:181.160.45.73 - - [20/Apr/2022 20:28:10] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:181.160.45.73 - - [20/Apr/2022 20:28:11] "GET /favicon.ico HTTP/1.1" 404 -
+
+
+Cuando una instancia es detenida, el uso de la CPU y la transferencia de datos cesa, pero los cargos por almacenamientos en el volume EBS continuan.
+
+Los datos de IP publica y DNS desaparecen cuando la instancia se encuentra detenida. 

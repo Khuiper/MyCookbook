@@ -1,0 +1,28 @@
+#!/bin/bash
+# Update and install python3
+sudo yum update -y
+sudo yum install -y python3
+
+#Export environment variables
+export APP_NAME=sample_app
+export LAB_ID=399068fe-9ca4-42de-a351-3d0048824a10
+export PROVISION_BUCKET_NAME=pu-base-buckets-v1-provision-lab
+
+#Declare files and create directory
+EC2_FILES="lab app.py requirements.txt templates/index.html"
+mkdir /home/ec2-user/$APP_NAME
+mkdir /home/ec2-user/$APP_NAME/templates
+
+#Copy files from S3
+for file_ in $EC2_FILES
+do
+aws s3 cp s3://$PROVISION_BUCKET_NAME/$LAB_ID/$APP_NAME/$file_ /home/ec2-user/$APP_NAME/$file_
+done
+
+# Install and start app
+mv /home/ec2-user/$APP_NAME/lab /etc/rc.d/init.d/
+chmod +x /etc/rc.d/init.d/lab
+chkconfig lab on
+sudo chown -R ec2-user:ec2-user /home/ec2-user/$APP_NAME
+sudo pip3 install -r /home/ec2-user/$APP_NAME/requirements.txt
+service lab start
