@@ -1,0 +1,46 @@
+>>> # Define a class for fancy defining fancy cars
+>>> class FancyCar():
+...     # Add a class variable
+...     wheels = 4
+...     # Add a method
+...     def driveFast(self):
+...         print("Driving so fast")
+...
+...
+...
+>>> # Instantiate a fancy car
+>>> my_car = FancyCar()
+>>> # Access the class attribute
+>>> my_car.wheels
+4
+>>> # Invoke the method
+>>> my_car.driveFast()
+Driving so fast
+>>>
+
+
+El metodo .index() entrega la posicion de un valor dentro de una lista, por ejemplo:
+>>>my_sequence = "Bill Cheatham"
+>>>my_sequence.index('C')
+5
+
+Se puede crear una nueva secuencia usando slicing, un slice aparece invocando una secuencia entre bkackets conteniendo un star, stop y step opcionales.
+
+my_sequence[start:stop:step]
+
+>>> my_sequence = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
+>>> my_sequence[2:5]
+['c', 'd', 'e']
+>>> my_sequence[:5]
+['a', 'b', 'c', 'd', 'e']
+>>> my_sequence[3:]
+['d', 'e', 'f', 'g']
+>>>
+
+Los numeros negativos se pueden usar para iniciar la secuencia al reves:
+>>> my_sequence[–6:]
+['b', 'c', 'd', 'e', 'f', 'g']
+>>> my_sequence[3:–1]
+['d', 'e', 'f']
+>>>
+
