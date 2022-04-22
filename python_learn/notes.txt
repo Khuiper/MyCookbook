@@ -44,3 +44,114 @@ Los numeros negativos se pueden usar para iniciar la secuencia al reves:
 ['d', 'e', 'f']
 >>>
 
+
+hay funciones interesantes para string, como por ejemplo para covertir un 
+string en una lista con las funciones.split() y .join()
+
+.split convierte un string en una lista: 
+
+>>> text = "Mary had a little lamb"
+>>> text.split()
+['Mary', 'had', 'a', 'little', 'lamb']
+>>> url = "gt.motomomo.io/v2/api/asset/143"
+>>> url.split('/')
+['gt.motomomo.io', 'v2', 'api', 'asset', '143']
+
+.join() convierte una lista en un string:
+
+>>> items = ['cow', 'milk', 'bread', 'butter']
+>>> " and ".join(items)
+'cow and milk and bread and butter'
+
+
+>>> '{} comes before {}'.format('first', 'second')
+'first comes before second'
+>>>
+
+>>> '{1} comes after {0}, but {1} comes before {2}'.format('first',
+                                                           'second',
+                                                           'third')
+'second comes after first, but second comes before third'
+>>>
+
+
+>>> '''{country} is an island.
+... {country} is off of the coast of
+... {continent} in the {ocean}'''.format(ocean='Indian Ocean',
+...                                      continent='Africa',
+...                                      country='Madagascar')
+'Madagascar is an island.
+Madagascar is off of the coast of
+Africa in the Indian Ocean'
+
+
+>>> vales = {'first': 'Bill', 'last': 'Bailey'}
+>>> "Wont you come home {first} {last}?".format(**vales)
+'Wont you come home Bill Bailey?'
+
+
+f-strings format
+>>> a = 1
+>>> b = 2
+>>> f"a is {a}, b is {b}. Adding them results in {a + b}"
+'a is 1, b is 2. Adding them results in 3'
+
+
+>>> count = 43
+>>> f"|{count:5d}"
+'|   43'
+
+>>> padding = 10
+>>> f"|{count:{padding}d}"
+'|        43'
+
+
+
+Built-in types and functions are available whenever you run Python code, 
+but to access the broader world of functionality available in the Python 
+ecosystem, you need to use the import statement. This approach lets you 
+add functionality from the Python Standard Library or third-party services 
+into your environment. You can selectively import parts of a package by using 
+the from keyword:
+
+>>> from string import Template
+>>> greeting = Template("$hello Mark Anthony")
+>>> greeting.substitute(hello="Bonjour")
+'Bonjour Mark Anthony'
+>>> greeting.substitute(hello="Zdravstvuyte")
+'Zdravstvuyte Mark Anthony'
+>>> greeting.substitute(hello="Nǐn hǎo")
+'Nǐn hǎo Mark Anthony'
+
+
+DICTs
+mapping of key to values
+
+>>> map = dict()
+>>> type(map)
+<class 'dict'>
+>>> map
+{}
+>>> kv_list = [['key-1', 'value-1'], ['key-2', 'value-2']]
+>>> dict(kv_list)
+{'key-1': 'value-1', 'key-2': 'value-2'}
+
+>>> map = {'key-1': 'value-1', 'key-2': 'value-2'}
+>>> map
+{'key-1': 'value-1', 'key-2': 'value-2'}
+
+>>> map['key-1']
+'value-1'
+>>> map['key-2']
+'value-2'
+
+>>> map
+{'key-1': 'value-1', 'key-2': 'value-2'}
+>>> map['key-3'] = 'value-3'
+>>> map
+{'key-1': 'value-1', 'key-2': 'value-2', 'key-3': 'value-3'}
+>>> map['key-1'] = 13
+>>> map
+{'key-1': 13, 'key-2': 'value-2', 'key-3': 'value-3'}
+
+
