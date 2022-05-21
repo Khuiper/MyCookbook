@@ -1,0 +1,13 @@
+Nube de AWS
+todos aquellos de servicios de informatica (200+) disponibles a traves de internet, bajo demanda y pago solo por lo que se utiliza.
+
+3 tipos de implementaciones:
+- Basada en la nube (Ejecutar, migrar, disenar y crear)
+- Hibrida (Ciertos recursos/servicios en la nube y otros on-premises)
+- on-premises
+
+Gastos variables
+- invertir en recursos tecnologicos antes de utilizarlos
+- pago solo por lo que se utiliza
+
+
