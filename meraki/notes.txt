@@ -1,4 +1,0 @@
-El buil-in developer environment se puede clonar desde la url descrita a continuacion:
-
-
-git clone --branch main https://github.com/CiscoDevNet/meraki-code.git
